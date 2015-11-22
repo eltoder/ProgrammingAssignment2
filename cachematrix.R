@@ -8,6 +8,8 @@
 ##
 ##      m$set(matrix_value)
 ##      s <- cacheSolve(m)
+##
+## cacheSolve() assumes the matrix is invertible.
 
 ## Returns a list of functions to manipulate a cached matrix and its inverse.
 ## get()/set() functions access the matrix, and getsolve()/setsolve() access
@@ -25,7 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Returns the inverse of a matrix created by makeCacheMatrix(). If already
 ## calculated, the cached value is returned. Otherwise, calculates the inverse
-## via solve() and caches it.
+## via solve() and caches it. Assumes the matrix is invertible.
 
 cacheSolve <- function(x, ...) {
     s <- x$getsolve()
